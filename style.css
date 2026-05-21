@@ -1,0 +1,208 @@
+/* Configurações Gerais e Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --primary-color: #2e7d32;     /* Verde Escuro */
+    --secondary-color: #4caf50;   /* Verde Médio / Folha */
+    --light-green: #e8f5e9;       /* Verde Bem Claro para Fundos */
+    --accent-color: #81c784;      /* Verde Suave para Destaques */
+    --dark-text: #1b5e20;         /* Texto Verde Muito Escuro */
+    --body-bg: #f9fbf9;           /* Fundo da Página */
+    --white: #ffffff;
+}
+
+body {
+    background-color: var(--body-bg);
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Cabeçalho e Navegação (Canto da tela/Menu) */
+header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background 0.3s, color 0.3s;
+}
+
+nav ul li a:hover, nav ul li a.active {
+    background-color: var(--white);
+    color: var(--primary-color);
+}
+
+/* Container Principal */
+.container {
+    flex: 1;
+    max-width: 1200px;
+    width: 90%;
+    margin: 30px auto;
+}
+
+/* Controle de Exibição das Páginas */
+.page-section {
+    display: none; /* Esconde as seções desativadas */
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.page-section.active {
+    display: block; /* Mostra apenas a seção ativa */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Títulos Globais */
+h2 {
+    color: var(--primary-color);
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* Estilos da Página Inicial */
+.hero {
+    background: linear-gradient(135deg, rgba(46, 125, 50, 0.9), rgba(76, 175, 80, 0.8)), url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80') center/cover;
+    color: var(--white);
+    padding: 60px 30px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.hero h1 { font-size: 2.5rem; margin-bottom: 15px; }
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background-color: var(--white);
+    border-left: 5px solid var(--secondary-color);
+    padding: 25px;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+/* Estilos de Dicas */
+.dicas-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.dica-item {
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.dica-item h4 { color: var(--primary-color); margin-bottom: 8px; }
+
+/* Estilos de Pilares */
+.pilares-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.pilar-box {
+    background-color: var(--light-green);
+    border: 1px solid var(--accent-color);
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.pilar-icon { font-size: 3rem; margin-bottom: 15px; }
+
+/* Estilos de Dúvidas (FAQ) */
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.faq-item {
+    background-color: var(--white);
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+.faq-question {
+    background-color: #f1f8e9;
+    color: var(--dark-text);
+    padding: 15px 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.faq-answer {
+    padding: 15px 20px;
+    border-top: 1px solid #e0e0e0;
+    color: #555;
+}
+
+/* Rodapé */
+footer {
+    background-color: #1b5e20;
+    color: var(--white);
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header { flex-direction: column; gap: 15px; }
+    nav ul { justify-content: center; }
+}
